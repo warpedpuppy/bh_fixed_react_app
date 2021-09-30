@@ -85,6 +85,7 @@ export class MainView extends React.Component {
 
             let { movies } = this.props;
             let { user } = this.state;
+            console.log(this.props)
             //if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
            // if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
@@ -102,7 +103,7 @@ export class MainView extends React.Component {
                             <LoginView onLoggedIn={user => this.onLoggedIn(user)}/>
                             </Col>
                             if (movies.length === 0) return <div className="main-view" />;
-                            return <MoviesList movies={movies}/>;
+                            return <MoviesList />;
                         }} />
                         <Route path="/register" render={() => {
                             if (user) return <Redirect to="/" />
@@ -146,6 +147,7 @@ export class MainView extends React.Component {
         }
     }
     let mapStateToProps = state => {
+        console.log(state)
         return { movies: state.movies }
     }
 
